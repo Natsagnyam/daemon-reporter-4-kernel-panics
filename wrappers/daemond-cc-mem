@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+exec gcc -O1 -g -fno-omit-frame-pointer \
+     -fsanitize=address,leak,undefined \
+     -I/home/natska/daemon-reporter-4-kernel-panics/include \
+     -L/home/natska/daemon-reporter-4-kernel-panics/build \
+     -Wl,-rpath,/home/natska/daemon-reporter-4-kernel-panics/build \
+     -Wl,--no-as-needed -ldaemond_hook "$@"

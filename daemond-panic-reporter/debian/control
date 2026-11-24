@@ -1,0 +1,13 @@
+Source: daemond-panic-reporter
+Section: devel
+Priority: optional
+Maintainer: C Runtime Diagnostics <dev@example.com>
+Build-Depends: debhelper-compat (= 13), g++ (>= 11), gcc (>= 11), valgrind
+Standards-Version: 4.6.2
+
+Package: daemond-panic-reporter
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, gcc, valgrind, libasan8 | libasan6, libtsan2 | libtsan0
+Description: Runtime C fault, RAM leak, race condition, and hard-fault reporter for eGUI
+ Intercepts ASan, LSan, TSan, Valgrind, and SIGSEGV/SIGBUS hard faults via a
+ lock-free cache-padded ring buffer and streams diagnostics to eGUI.

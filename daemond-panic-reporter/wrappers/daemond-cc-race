@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Compiles C apps with ThreadSanitizer (C++20/C11 TSan runtime)
+exec gcc -O1 -g -fno-omit-frame-pointer \
+     -fsanitize=thread -fPIE -pie \
+     -Wl,--no-as-needed -ldaemond_hook "$@"

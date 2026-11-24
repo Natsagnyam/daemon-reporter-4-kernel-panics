@@ -1,0 +1,13 @@
+Source: daemon-reporter-4-kernel-panics
+Section: devel
+Priority: optional
+Maintainer: Natsagnyam Namkhai <natska@example.com>
+Build-Depends: debhelper-compat (= 13), g++ (>= 11), gcc (>= 11), valgrind
+Standards-Version: 4.6.2
+
+Package: daemon-reporter-4-kernel-panics
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, gcc, valgrind
+Description: Runtime C RAM leak, race condition, and hard-fault reporter daemon
+ Captures LSan, TSan, ASan, Valgrind, and SIGSEGV/SIGBUS pointer hard faults
+ into a cache-padded shared-memory ring buffer for eGUI reporting.

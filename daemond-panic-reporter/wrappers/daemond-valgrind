@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Runs un-instrumented C binaries under Valgrind Memcheck/Helgrind
+exec valgrind --tool=memcheck --leak-check=full --show-leak-kinds=all "$@"

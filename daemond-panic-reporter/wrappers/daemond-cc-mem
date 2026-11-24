@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Compiles C apps with ASan + LSan + UBSan and preloads libdaemond_hook.so
+exec gcc -O1 -g -fno-omit-frame-pointer \
+     -fsanitize=address,leak,undefined \
+     -Wl,--no-as-needed -ldaemond_hook "$@"

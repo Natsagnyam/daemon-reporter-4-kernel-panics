@@ -1,0 +1,7 @@
+build/
+egui-viewer/target/
+*.deb
+*.ddeb
+*.buildinfo
+*.changes
+*.orig.tar.*

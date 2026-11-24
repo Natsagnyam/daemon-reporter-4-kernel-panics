@@ -1,0 +1,11 @@
+#!/usr/bin/make -f
+%:
+	dh $@
+
+override_dh_auto_install:
+	install -Dm755 build/daemond debian/daemond-panic-reporter/usr/bin/daemond
+	install -Dm755 build/daemond-egui debian/daemond-panic-reporter/usr/bin/daemond-egui
+	install -Dm644 build/libdaemond_hook.so debian/daemond-panic-reporter/usr/lib/libdaemond_hook.so
+	install -Dm755 wrappers/daemond-cc-mem debian/daemond-panic-reporter/usr/bin/daemond-cc-mem
+	install -Dm755 wrappers/daemond-cc-race debian/daemond-panic-reporter/usr/bin/daemond-cc-race
+	install -Dm755 wrappers/daemond-valgrind debian/daemond-panic-reporter/usr/bin/daemond-valgrind
