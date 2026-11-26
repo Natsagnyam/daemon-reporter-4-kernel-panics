@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
+ROOT_DIR="$(pwd)"
 exec gcc -O1 -g -fno-omit-frame-pointer \
      -fsanitize=thread -fno-pie -no-pie \
-     -I/home/natska/daemon-reporter-4-kernel-panics/include \
-     -L/home/natska/daemon-reporter-4-kernel-panics/build \
-     -Wl,-rpath,/home/natska/daemon-reporter-4-kernel-panics/build \
+     -I"${ROOT_DIR}/include" \
+     -L"${ROOT_DIR}/build" \
+     -Wl,-rpath,"${ROOT_DIR}/build" \
      -Wl,--no-as-needed -ldaemond_hook "$@"

@@ -27,7 +27,7 @@ build/app2: tests/app2.c build/libdaemond_hook.so
 
 build/app3: tests/app3.c build/libdaemond_hook.so
 	@mkdir -p build
-	$(CC) -O1 -g -fno-omit-frame-pointer -Iinclude -Lbuild -Wl,-rpath,$(CURDIR)/build -Wl,--no-as-needed -ldaemond_hook tests/app3.c -o build/app3
+	$(CC) -O1 -g -fno-omit-frame-pointer -Iinclude -Lbuild -Wl,-rpath,$(CURDIR)/build -Wl,--no-as-needed tests/app3.c -ldaemond_hook -o build/app3
 
 build/app4_panic: tests/app4_panic.c include/daemond_shm.h
 	@mkdir -p build
